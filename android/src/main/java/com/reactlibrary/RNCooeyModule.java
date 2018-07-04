@@ -14,7 +14,7 @@ public class RNCooeyModule extends ReactContextBaseJavaModule {
   public RNCooeyModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
-    CooeyDeviceManager.getInstance();
+
 
   }
 
