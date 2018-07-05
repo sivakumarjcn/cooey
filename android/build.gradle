@@ -44,7 +44,7 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.cooey.android:devices:0.5.1.2002'
+    implementation 'com.cooey.android:devices:0.5.1.1867'
     implementation 'com.cooey.android:vitals:0.5.1.1697'
 }
   
