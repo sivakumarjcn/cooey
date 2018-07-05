@@ -1,7 +1,6 @@
 package com.reactlibrary;
 
-import android.app.Application;
-import android.support.v7.app.AppCompatDelegate;
+import android.os.Handler;
 import android.util.Log;
 
 import com.cooey.devices.bpmeter.VoiceBpMeterCallBack;
@@ -26,7 +25,7 @@ public class VoiceBPMonitor implements VoiceBpMeterCallBack {
 
 
     @ReactMethod
-    public void initializeDevice() {
+    public void initiateVoiceBP() {
         //Inititalize the voicebpmeter with context and callback interface
         this.voiceBpMeterControls = new VoiceBpMeterControls(context, this);
         //Enable scan of the voice bp meter
@@ -34,12 +33,21 @@ public class VoiceBPMonitor implements VoiceBpMeterCallBack {
     }
 
     @ReactMethod
-    public void connect() {
+    public void connectBPMonitor() {
         if(mConnected) {
             this.voiceBpMeterControls.takeReading();
         }else  {
             mConnected = this.voiceBpMeterControls.scanLeDevice(true);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                        if(voiceBpMeterControls != null) {
+                            voiceBpMeterControls.takeReading();
+                        }
 
+                }
+            }, 1000);
         }
     }
 
@@ -52,22 +60,33 @@ public class VoiceBPMonitor implements VoiceBpMeterCallBack {
 
     @Override
     public void batteryStatus(String s) {
-
+        WritableMap params = Arguments.createMap();
+        params.putString("status",s);
+        this.sendEvent("voice_bp_battery", params);
     }
 
     @Override
     public void onProgressSystolicValue(String s) {
+        WritableMap params = Arguments.createMap();
+        params.putString("status",s);
+        this.sendEvent("voice_bp_sys_progress",params);
 
     }
 
     @Override
     public void onDeviceResults(int systolic, int diastolic, int heartRate) {
-
+        WritableMap params = Arguments.createMap();
+        params.putInt("systolic",systolic);
+        params.putInt("diastolic",diastolic);
+        params.putInt("heartRate",heartRate);
+        this.sendEvent("voice_bp_results",params);
     }
 
     @Override
     public void onError(String s) {
-
+        WritableMap params = Arguments.createMap();
+        params.putString("error",s);
+        this.sendEvent("voice_bp_error",params);
     }
 
     public void sendEvent(final String eventName, final WritableMap params) {
