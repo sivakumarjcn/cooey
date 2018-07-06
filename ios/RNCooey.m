@@ -2,6 +2,7 @@
 #import "RNCooey.h"
 
 @implementation RNCooey
+@synthesize bridge = _bridge;
 
 - (dispatch_queue_t)methodQueue
 {
