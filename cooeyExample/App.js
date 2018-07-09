@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import RNCooey from 'react-native-cooey';
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +12,8 @@ export default class App extends React.Component {
       </View>
     );
   }
+
+  
 }
 
 const styles = StyleSheet.create({

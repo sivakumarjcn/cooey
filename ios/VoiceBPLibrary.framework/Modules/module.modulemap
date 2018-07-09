@@ -1,0 +1,11 @@
+framework module VoiceBPLibrary {
+  umbrella header "VoiceBPLibrary.h"
+
+  export *
+  module * { export * }
+}
+
+module VoiceBPLibrary.Swift {
+    header "VoiceBPLibrary-Swift.h"
+    requires objc
+}

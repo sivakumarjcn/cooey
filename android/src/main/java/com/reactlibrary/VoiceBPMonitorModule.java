@@ -6,34 +6,35 @@ import android.util.Log;
 import com.cooey.devices.bpmeter.VoiceBpMeterCallBack;
 import com.cooey.devices.bpmeter.VoiceBpMeterControls;
 import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 
-public class VoiceBPMonitor implements VoiceBpMeterCallBack {
+public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements VoiceBpMeterCallBack {
 
-    private final ReactContext context;
+    private final ReactApplicationContext reactContext;
     private VoiceBpMeterControls voiceBpMeterControls;
     private Boolean mConnected = false;
 
-    public VoiceBPMonitor(ReactContext context) {
-        this.context = context;
-
+    public VoiceBPMonitorModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
     }
 
 
     @ReactMethod
-    public void initiateVoiceBP() {
-        //Inititalize the voicebpmeter with context and callback interface
-        this.voiceBpMeterControls = new VoiceBpMeterControls(context, this);
+    public void connectBPMonitor() {
+        //Inititalize the voice bp meter with context and callback interface
+        this.voiceBpMeterControls = new VoiceBpMeterControls(this.getReactApplicationContext(), this);
         //Enable scan of the voice bp meter
         mConnected = this.voiceBpMeterControls.scanLeDevice(true);
     }
 
     @ReactMethod
-    public void connectBPMonitor() {
+    public void takeReading() {
         if(mConnected) {
             this.voiceBpMeterControls.takeReading();
         }else  {
@@ -90,12 +91,17 @@ public class VoiceBPMonitor implements VoiceBpMeterCallBack {
     }
 
     public void sendEvent(final String eventName, final WritableMap params) {
-        if (this.context.hasActiveCatalystInstance()) {
-            this.context
+        if (this.reactContext.hasActiveCatalystInstance()) {
+            this.reactContext
                     .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                     .emit(eventName, params);
         } else {
-            Log.d("VoiceBPMonitor", "Waiting for CatalystInstance before sending event");
+            Log.d("VoiceBPMonitorModule", "Waiting for CatalystInstance before sending event");
         }
+    }
+
+    @Override
+    public String getName() {
+        return "VoiceBPMonitor";
     }
 }

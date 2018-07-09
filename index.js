@@ -3,4 +3,8 @@ import { NativeModules } from 'react-native';
 
 const { RNCooey } = NativeModules;
 
-export default RNCooey;
+const VoiceBPMonitor = RNCooey.VoiceBPMonitor
+
+export default {
+    VoiceBPMonitor
+};
