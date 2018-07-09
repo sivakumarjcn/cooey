@@ -22,7 +22,6 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(connectBPMonitor) {
     this.bpConnectionManager = [[BPMonitorConnectionManager alloc] init];
-    [this.bpConnectionManager setOnComplete:];
     [this.bpConnectionManager connect];
 }
 
