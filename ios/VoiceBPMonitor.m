@@ -7,6 +7,7 @@
 //
 
 #import "VoiceBPMonitor.h"
+#import <VoiceBPLibrary/VoiceBPLibrary.h>
 
 @interface VoiceBPMonitor()
 @property BPMonitorConnectionManager *bpConnectionManager;
@@ -18,15 +19,17 @@
 @synthesize bridge = _bridge;
 @synthesize bpConnectionManager;
 
-- (dispatch_queue_t)methodQueue {
+- (dispatch_queue_t)methodQueue
+{
     return dispatch_get_main_queue();
 }
 
-+ (BOOL)requiresMainQueueSetup {
-    return NO;
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
 }
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(Cooey);
 
 - (instancetype)init {
     if (self = [super init]) {

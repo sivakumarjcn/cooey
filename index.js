@@ -1,10 +1,9 @@
+const { NativeModules, NativeEventEmitter } = require('react-native');
 
-import { NativeModules, NativeEventEmitter } from 'react-native';
+const { Cooey } = NativeModules;
 
-const { RNCooey } = NativeModules;
-
-const CooeyEvents = new NativeEventEmitter(RNCooey);
-const VoiceBPMonitor = RNCooey.VoiceBPMonitor
+const CooeyEvents = new NativeEventEmitter(Cooey);
+const VoiceBPMonitor = Cooey.VoiceBPMonitor
 
 export default {
     VoiceBPMonitor,

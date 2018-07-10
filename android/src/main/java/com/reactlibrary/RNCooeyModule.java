@@ -22,7 +22,7 @@ public class RNCooeyModule extends ReactContextBaseJavaModule {
 
   @Override
   public String getName() {
-    return "RNCooey";
+    return "Cooey";
   }
 
   public static void sendEvent(final ReactContext context,

@@ -17,7 +17,12 @@ NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
     return dispatch_get_main_queue();
 }
 
-RCT_EXPORT_MODULE()
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
+RCT_EXPORT_MODULE(Cooey);
 
 - (NSArray<NSString *> *)supportedEvents {
     return @[
