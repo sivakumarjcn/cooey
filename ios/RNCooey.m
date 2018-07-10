@@ -3,6 +3,13 @@
 #import <React/RCTBridge.h>
 #import <React/RCTEventDispatcher.h>
 #import "VoiceBPMonitor.h"
+
+NSString * const VOICE_BP_BATTERY_EVENT = @"voice_bp_battery";
+NSString * const VOICE_BP_CONNECTION_EVENT = @"voice_bp_connection";
+NSString * const VOICE_BP_RESULTS_EVENT = @"voice_bp_results";
+NSString * const VOICE_BP_SYS_PROGRESS_EVENT = @"voice_bp_sys_progress";
+NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
+
 @implementation RNCooey
 
 - (dispatch_queue_t)methodQueue

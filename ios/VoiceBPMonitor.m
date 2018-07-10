@@ -12,11 +12,7 @@
 @property BPMonitorConnectionManager *bpConnectionManager;
 @end
 
-NSString * const VOICE_BP_BATTERY_EVENT = @"voice_bp_battery";
-NSString * const VOICE_BP_CONNECTION_EVENT = @"voice_bp_connection";
-NSString * const VOICE_BP_RESULTS_EVENT = @"voice_bp_results";
-NSString * const VOICE_BP_SYS_PROGRESS_EVENT = @"voice_bp_sys_progress";
-NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
+
 
 @implementation VoiceBPMonitor
 @synthesize bridge = _bridge;

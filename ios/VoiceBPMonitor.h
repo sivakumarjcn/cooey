@@ -14,11 +14,7 @@
 #endif
 #import <VoiceBPLibrary/VoiceBPLibrary.h>
 
-extern NSString * const VOICE_BP_BATTERY_EVENT;
-extern NSString * const VOICE_BP_CONNECTION_EVENT;
-extern NSString * const VOICE_BP_RESULTS_EVENT;
-extern NSString * const VOICE_BP_SYS_PROGRESS_EVENT;
-extern NSString * const VOICE_BP_ERROR_EVENT;
+
 
 @interface VoiceBPMonitor : NSObject <RCTBridgeModule>
 
