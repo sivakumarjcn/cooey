@@ -29,7 +29,7 @@
     return YES;
 }
 
-RCT_EXPORT_MODULE(Cooey);
+RCT_EXPORT_MODULE();
 
 - (instancetype)init {
     if (self = [super init]) {
