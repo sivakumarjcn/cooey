@@ -1,8 +1,6 @@
 package com.reactlibrary;
 
 import android.os.Handler;
-import android.util.Log;
-
 import com.cooey.devices.bpmeter.VoiceBpMeterCallBack;
 import com.cooey.devices.bpmeter.VoiceBpMeterControls;
 import com.facebook.react.bridge.Arguments;
@@ -10,7 +8,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 
 public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements VoiceBpMeterCallBack {
@@ -56,21 +53,21 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
     public void onDeviceConnected(boolean b) {
         WritableMap params = Arguments.createMap();
         params.putBoolean("status", b);
-        this.sendEvent("voice_bp_connection", params);
+        RNCooeyModule.sendEvent(this.reactContext,"voice_bp_connection", params);
     }
 
     @Override
     public void batteryStatus(String s) {
         WritableMap params = Arguments.createMap();
         params.putString("status",s);
-        this.sendEvent("voice_bp_battery", params);
+        RNCooeyModule.sendEvent(this.reactContext,"voice_bp_battery", params);
     }
 
     @Override
     public void onProgressSystolicValue(String s) {
         WritableMap params = Arguments.createMap();
-        params.putString("status",s);
-        this.sendEvent("voice_bp_sys_progress",params);
+        params.putString("progress",s);
+        RNCooeyModule.sendEvent(this.reactContext,"voice_bp_sys_progress",params);
 
     }
 
@@ -80,25 +77,17 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
         params.putInt("systolic",systolic);
         params.putInt("diastolic",diastolic);
         params.putInt("heartRate",heartRate);
-        this.sendEvent("voice_bp_results",params);
+        RNCooeyModule.sendEvent(this.reactContext,"voice_bp_results",params);
     }
 
     @Override
     public void onError(String s) {
         WritableMap params = Arguments.createMap();
         params.putString("error",s);
-        this.sendEvent("voice_bp_error",params);
+        RNCooeyModule.sendEvent(this.reactContext,"voice_bp_error",params);
     }
 
-    public void sendEvent(final String eventName, final WritableMap params) {
-        if (this.reactContext.hasActiveCatalystInstance()) {
-            this.reactContext
-                    .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                    .emit(eventName, params);
-        } else {
-            Log.d("VoiceBPMonitorModule", "Waiting for CatalystInstance before sending event");
-        }
-    }
+
 
     @Override
     public String getName() {

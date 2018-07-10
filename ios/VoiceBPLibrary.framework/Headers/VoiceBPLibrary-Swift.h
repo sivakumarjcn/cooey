@@ -194,6 +194,7 @@ SWIFT_CLASS("_TtC14VoiceBPLibrary26BPMonitorConnectionManager")
 @property (nonatomic, copy) void (^ _Nullable onComplete)(CGFloat, CGFloat, CGFloat, NSString * _Nonnull);
 @property (nonatomic, copy) void (^ _Nullable onReciveBatteryStatus)(NSString * _Nonnull);
 @property (nonatomic, copy) void (^ _Nullable onConnectionStatus)(NSString * _Nonnull);
+@property (nonatomic, copy) void (^ _Nullable onRecivedBPContinousValue)(NSString * _Nonnull);
 - (void)connect;
 - (void)takeReading;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didConnectPeripheral:(CBPeripheral * _Nonnull)peripheral;

@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #if __has_include("RCTBridgeModule.h")
 #import "RCTBridgeModule.h"
-#import "RCTEventEmitter.h"
 #else
 #import <React/RCTBridgeModule.h>
-#import <React/RCTEventEmitter.h>
 #endif
 #import <VoiceBPLibrary/VoiceBPLibrary.h>
 
-@interface VoiceBPMonitor : RCTEventEmitter <RCTBridgeModule>
-@property BPMonitorConnectionManager *bpConnectionManager;
+extern NSString * const VOICE_BP_BATTERY_EVENT;
+extern NSString * const VOICE_BP_CONNECTION_EVENT;
+extern NSString * const VOICE_BP_RESULTS_EVENT;
+extern NSString * const VOICE_BP_SYS_PROGRESS_EVENT;
+extern NSString * const VOICE_BP_ERROR_EVENT;
+
+@interface VoiceBPMonitor : NSObject <RCTBridgeModule>
 
 @end

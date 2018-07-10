@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import RNCooey from 'react-native-cooey';
+import { VoiceBPMonitor, CooeyEvents} from 'react-native-cooey';
+
+const eventsForCooey = CooeyEvents;
+const bpMonitor = VoiceBPMonitor;
 
 export default class App extends React.Component {
   render() {

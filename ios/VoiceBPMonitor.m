@@ -8,6 +8,15 @@
 
 #import "VoiceBPMonitor.h"
 
+@interface VoiceBPMonitor()
+@property BPMonitorConnectionManager *bpConnectionManager;
+@end
+
+NSString * const VOICE_BP_BATTERY_EVENT = @"voice_bp_battery";
+NSString * const VOICE_BP_CONNECTION_EVENT = @"voice_bp_connection";
+NSString * const VOICE_BP_RESULTS_EVENT = @"voice_bp_results";
+NSString * const VOICE_BP_SYS_PROGRESS_EVENT = @"voice_bp_sys_progress";
+NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
 
 @implementation VoiceBPMonitor
 @synthesize bridge = _bridge;
@@ -48,8 +57,20 @@ RCT_EXPORT_MODULE()
             }
 
         }];
+        
+        [self.bpConnectionManager setOnRecivedBPContinousValue:^(NSString * systolicValue) {
+            [weakSelf sendEventWithName:@"voice_bp_sys_progress" body:@{@"progress":systolicValue}];
+        }];
+        
     }
     return self;
+}
+
+-(void)sendEventWithName:(NSString*)eventName body:(NSDictionary *)body {
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    [userInfo setValue:eventName forKey:@"eventName"];
+    [userInfo addEntriesFromDictionary:body];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RNCOOEY_NOTIFICATION" object:nil userInfo:userInfo];
 }
 
 RCT_EXPORT_METHOD(connectBPMonitor) {
