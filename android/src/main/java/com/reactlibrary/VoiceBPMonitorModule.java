@@ -55,8 +55,8 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
     @Override
     public void onDeviceConnected(boolean b) {
         WritableMap params = Arguments.createMap();
-        params.putBoolean("connected", b);
-        this.sendEvent("voice_bp_connected", params);
+        params.putBoolean("status", b);
+        this.sendEvent("voice_bp_connection", params);
     }
 
     @Override

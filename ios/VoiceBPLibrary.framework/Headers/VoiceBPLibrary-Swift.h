@@ -165,6 +165,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import ObjectiveC;
 @import CoreBluetooth;
+@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -190,6 +191,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC14VoiceBPLibrary26BPMonitorConnectionManager")
 @interface BPMonitorConnectionManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
+@property (nonatomic, copy) void (^ _Nullable onComplete)(CGFloat, CGFloat, CGFloat, NSString * _Nonnull);
+@property (nonatomic, copy) void (^ _Nullable onReciveBatteryStatus)(NSString * _Nonnull);
+@property (nonatomic, copy) void (^ _Nullable onConnectionStatus)(NSString * _Nonnull);
+- (void)connect;
+- (void)takeReading;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didConnectPeripheral:(CBPeripheral * _Nonnull)peripheral;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didFailToConnectPeripheral:(CBPeripheral * _Nonnull)peripheral error:(NSError * _Nullable)error;
 - (void)centralManager:(CBCentralManager * _Nonnull)central didDiscoverPeripheral:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * _Nonnull)advertisementData RSSI:(NSNumber * _Nonnull)RSSI;
