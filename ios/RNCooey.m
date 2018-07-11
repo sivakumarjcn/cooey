@@ -12,6 +12,8 @@ NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
 
 @implementation RNCooey
 
+RCT_EXPORT_MODULE(Cooey)
+
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
@@ -22,7 +24,7 @@ NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
     return YES;
 }
 
-RCT_EXPORT_MODULE(Cooey);
+
 
 - (NSArray<NSString *> *)supportedEvents {
     return @[

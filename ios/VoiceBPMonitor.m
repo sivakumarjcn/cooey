@@ -16,6 +16,9 @@
 
 
 @implementation VoiceBPMonitor
+
+RCT_EXPORT_MODULE()
+
 @synthesize bridge = _bridge;
 @synthesize bpConnectionManager;
 
@@ -29,7 +32,7 @@
     return YES;
 }
 
-RCT_EXPORT_MODULE();
+
 
 - (instancetype)init {
     if (self = [super init]) {
