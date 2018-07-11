@@ -1,6 +1,4 @@
 rootProject.name = 'cooeyExample'
 
-include ':app'
-
-include ':react-native-cooey'
+include ':react-native-cooey', ':app'
 project(':react-native-cooey').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-cooey/android')
