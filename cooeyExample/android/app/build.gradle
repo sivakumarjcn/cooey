@@ -98,7 +98,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.cooeyexample"
+        applicationId "fit.cure.cooey"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -134,6 +134,12 @@ android {
             }
         }
     }
+}
+
+
+configurations.all {
+    exclude module: "de.hdodenhof:circleimageview"
+    exclude module: "com.diogobernardino:williamchart"
 }
 
 dependencies {
