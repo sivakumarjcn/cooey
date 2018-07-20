@@ -19,15 +19,17 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
     public VoiceBPMonitorModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-        //Inititalize the voice bp meter with context and callback interface
-        this.voiceBpMeterControls = new VoiceBpMeterControls(this.getReactApplicationContext(), this);
+
     }
 
 
     @ReactMethod
     public void connectBPMonitor() {
+        //Inititalize the voice bp meter with context and callback interface
+        this.voiceBpMeterControls = new VoiceBpMeterControls(this.reactContext, this);
         //Enable scan of the voice bp meter
         mConnected = this.voiceBpMeterControls.scanLeDevice(true);
+
     }
 
     @ReactMethod

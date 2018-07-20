@@ -5,7 +5,7 @@ const { Cooey } = NativeModules;
 const CooeyEvents = new NativeEventEmitter(Cooey);
 const VoiceBPMonitor = NativeModules.VoiceBPMonitor
 
-export default {
+module.exports = {
     VoiceBPMonitor,
     CooeyEvents
 };
