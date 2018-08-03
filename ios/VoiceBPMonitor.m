@@ -45,8 +45,8 @@ RCT_EXPORT_MODULE()
         [self.bpConnectionManager setOnConnectionStatus:^(NSString *status) {
             NSLog(@"connection status %@", status);
             BOOL value = false;
-            if([status isEqualToString:@"connected"]) {
-                value = true;
+            if( [status caseInsensitiveCompare:@"Connected"] == NSOrderedSame ) {
+                 value = true;
             }
             [weakSelf sendEventWithName:@"voice_bp_connection" body:@{@"status":@(value)}];
         }];
@@ -61,7 +61,13 @@ RCT_EXPORT_MODULE()
         }];
         
         [self.bpConnectionManager setOnRecivedBPContinousValue:^(NSString * systolicValue) {
-            [weakSelf sendEventWithName:@"voice_bp_sys_progress" body:@{@"progress":systolicValue}];
+            if(systolicValue) {
+                NSCharacterSet *unwantedChars = [NSCharacterSet characterSetWithCharactersInString:@"\"[]"];
+                NSString *requiredString = [[systolicValue componentsSeparatedByCharactersInSet:unwantedChars] componentsJoinedByString: @""];
+                NSNumber *progress = [NSNumber numberWithInteger:[requiredString integerValue]];
+                [weakSelf sendEventWithName:@"voice_bp_sys_progress" body:@{@"progress":progress}];
+            }
+    
         }];
         
     }
