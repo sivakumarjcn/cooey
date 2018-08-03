@@ -45,9 +45,11 @@ RCT_EXPORT_MODULE(Cooey)
 }
 
 - (void)passEvent:(NSNotification *)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    if([userInfo valueForKey:@"eventName"]) {
-        [self sendEventWithName:[userInfo valueForKey:@"eventName"] body:userInfo];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:notification.userInfo];
+    NSString *eventName = [[userInfo valueForKey:@"eventName"] copy];
+    if(eventName) {
+        [userInfo removeObjectForKey:@"eventName"];
+        [self sendEventWithName:eventName body:userInfo];
     }
     
 }

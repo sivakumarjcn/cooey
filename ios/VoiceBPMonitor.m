@@ -69,9 +69,8 @@ RCT_EXPORT_MODULE()
 }
 
 -(void)sendEventWithName:(NSString*)eventName body:(NSDictionary *)body {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:body];
     [userInfo setValue:eventName forKey:@"eventName"];
-    [userInfo addEntriesFromDictionary:body];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RNCOOEY_NOTIFICATION" object:nil userInfo:userInfo];
 }
 
