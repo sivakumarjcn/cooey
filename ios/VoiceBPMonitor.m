@@ -40,7 +40,7 @@ RCT_EXPORT_MODULE()
         __weak VoiceBPMonitor *weakSelf = self;
         [self.bpConnectionManager setOnReciveBatteryStatus:^(NSString *status) {
                 NSLog(@"battery status %@", status);
-            [weakSelf sendEventWithName:@"voice_bp_battery" body:@{@"status":status}];
+            [weakSelf sendEventWithName:@"voice_bp_battery" body:@{@"status":[NSNumber numberWithBool:status]}];
         }];
         [self.bpConnectionManager setOnConnectionStatus:^(NSString *status) {
             NSLog(@"connection status %@", status);
@@ -53,7 +53,7 @@ RCT_EXPORT_MODULE()
         [self.bpConnectionManager setOnComplete:^(CGFloat systolic, CGFloat diastolic, CGFloat heartrate, NSString *errorCode) {
             NSLog(@"data systolic %f, diastolic %f, heart rate %f, errorcode %@", systolic, diastolic, heartrate, errorCode);
             if([errorCode integerValue] == 200) {
-                [weakSelf sendEventWithName:@"voice_bp_results" body:@{@"systolic":@(systolic),@"diastolic":@(diastolic),@"heartRate":@(heartrate)}];
+                [weakSelf sendEventWithName:@"voice_bp_results" body:@{@"systolic":[NSNumber numberWithFloat:systolic],@"diastolic":[NSNumber numberWithFloat:diastolic],@"heartRate":[NSNumber numberWithFloat:heartrate]}];
             }else {
                 [weakSelf sendEventWithName:@"voice_bp_error" body:@{@"errorCode":errorCode,@"error":@"Error"}];
             }
