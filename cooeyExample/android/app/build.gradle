@@ -137,10 +137,7 @@ android {
 }
 
 
-configurations.all {
-    exclude module: "de.hdodenhof:circleimageview"
-    exclude module: "com.diogobernardino:williamchart"
-}
+
 
 dependencies {
 

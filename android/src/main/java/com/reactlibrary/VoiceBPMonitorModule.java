@@ -8,8 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 
-import com.cooey.devices.bpmeter.VoiceBpMeterCallBack;
-import com.cooey.devices.bpmeter.VoiceBpMeterControls;
+import com.cooey.android.voicebp.VoiceBpMeterCallBack;
+import com.cooey.android.voicebp.VoiceBpMeterControls;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -46,16 +46,24 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
 
     private void  startConnection() {
         //Inititalize the voice bp meter with context and callback interface
-        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
-            Intent enableBtIntent =
-                    new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            final Activity activity = getCurrentActivity();
-            activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        try {
 
-        }else {
-            this.voiceBpMeterControls = new VoiceBpMeterControls(this.reactContext, this);
-            //Enable scan of the voice bp meter
-            mConnected = this.voiceBpMeterControls.scanLeDevice(true);
+            if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
+                Intent enableBtIntent =
+                        new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                final Activity activity = getCurrentActivity();
+                activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+
+            }else {
+                this.voiceBpMeterControls = new VoiceBpMeterControls(this.reactContext, this);
+                //Enable scan of the voice bp meter
+                mConnected = this.voiceBpMeterControls.scanLeDevice(true);
+            }
+
+        }catch (Exception e) {
+            WritableMap params = Arguments.createMap();
+            params.putString("error",e.getLocalizedMessage());
+            RNCooeyModule.sendEvent(this.reactContext,"voice_bp_error",params);
         }
 
 
