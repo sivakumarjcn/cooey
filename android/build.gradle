@@ -1,22 +1,9 @@
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30"
-    }
-}
-
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion "27.0.2"
 
     defaultConfig {
         minSdkVersion 21
@@ -24,18 +11,10 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    lintOptions {
-        abortOnError false
-    }
+
 }
 
 repositories {
-    jcenter()
-    google()
-    mavenCentral()
-    maven {
-        url 'https://maven.google.com'
-    }
     maven {
         credentials {
             username 'VSTS'
@@ -43,12 +22,10 @@ repositories {
         }
         url "https://cooeydevelopers.pkgs.visualstudio.com/_packaging/android/maven/v1"
     }
+    mavenCentral()
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.facebook.react:react-native:0.53.3'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.41"
-    implementation 'com.cooey.android:voicebpmonitor:1.0.00'
-
+    implementation "com.cooey.android:voicebpmonitor:1.0.00"
+    implementation "com.facebook.react:react-native:+"
 }
