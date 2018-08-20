@@ -1,5 +1,19 @@
 
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30"
+    }
+}
+
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -26,6 +40,8 @@ repositories {
 }
 
 dependencies {
-    implementation "com.cooey.android:voicebpmonitor:1.0.00"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.cooey.android:voicebpmonitor:1.0.01"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.41"
     implementation "com.facebook.react:react-native:+"
 }
