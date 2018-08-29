@@ -27,6 +27,7 @@
 		DD32F5AB20F5D35200D58042 /* VoiceBPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD32F5A920F5D25600D58042 /* VoiceBPLibrary.framework */; };
 		DD3BB8AA21364EA90017548C /* CooeyA2WeighingScale.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD3BB8AB213650510017548C /* CooeyA2WeighingScale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */; };
+		DD3BB916213686FB0017548C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB8B9213679510017548C /* MediaPlayer.framework */; };
 		DDDADE0A20F4AD2B00B40B1B /* libRNCooey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDADD8120F36D0D00B40B1B /* libRNCooey.a */; };
 /* End PBXBuildFile section */
 
@@ -340,6 +341,7 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		DD32F5A920F5D25600D58042 /* VoiceBPLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VoiceBPLibrary.framework; path = "../node_modules/react-native-cooey/ios/VoiceBPLibrary.framework"; sourceTree = "<group>"; };
 		DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CooeyA2WeighingScale.framework; path = "../node_modules/react-native-cooey/ios/WeighingScaleSDK/CooeyA2WeighingScale.framework"; sourceTree = "<group>"; };
+		DD3BB8B9213679510017548C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		DDDADD7C20F36D0D00B40B1B /* RNCooey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCooey.xcodeproj; path = ../../ios/RNCooey.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +350,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3BB916213686FB0017548C /* MediaPlayer.framework in Frameworks */,
 				DD32F5AB20F5D35200D58042 /* VoiceBPLibrary.framework in Frameworks */,
 				DD3BB8AB213650510017548C /* CooeyA2WeighingScale.framework in Frameworks */,
 				DDDADE0A20F4AD2B00B40B1B /* libRNCooey.a in Frameworks */,
@@ -489,6 +492,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD3BB8B9213679510017548C /* MediaPlayer.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;

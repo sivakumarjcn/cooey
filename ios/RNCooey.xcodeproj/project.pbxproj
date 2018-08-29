@@ -270,7 +270,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WeighingScaleSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -326,7 +326,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WeighingScaleSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -349,7 +349,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WeighingScaleSDK",
 				);
 				HEADER_SEARCH_PATHS = (
@@ -373,7 +373,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WeighingScaleSDK",
 				);
 				HEADER_SEARCH_PATHS = (
