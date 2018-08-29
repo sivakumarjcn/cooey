@@ -25,6 +25,8 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		DD32F5AA20F5D25600D58042 /* VoiceBPLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD32F5A920F5D25600D58042 /* VoiceBPLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD32F5AB20F5D35200D58042 /* VoiceBPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD32F5A920F5D25600D58042 /* VoiceBPLibrary.framework */; };
+		DD3BB8AA21364EA90017548C /* CooeyA2WeighingScale.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD3BB8AB213650510017548C /* CooeyA2WeighingScale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */; };
 		DDDADE0A20F4AD2B00B40B1B /* libRNCooey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDADD8120F36D0D00B40B1B /* libRNCooey.a */; };
 /* End PBXBuildFile section */
 
@@ -304,6 +306,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DD3BB8AA21364EA90017548C /* CooeyA2WeighingScale.framework in Embed Frameworks */,
 				DD32F5AA20F5D25600D58042 /* VoiceBPLibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -336,6 +339,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		DD32F5A920F5D25600D58042 /* VoiceBPLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VoiceBPLibrary.framework; path = "../node_modules/react-native-cooey/ios/VoiceBPLibrary.framework"; sourceTree = "<group>"; };
+		DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CooeyA2WeighingScale.framework; path = "../node_modules/react-native-cooey/ios/WeighingScaleSDK/CooeyA2WeighingScale.framework"; sourceTree = "<group>"; };
 		DDDADD7C20F36D0D00B40B1B /* RNCooey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCooey.xcodeproj; path = ../../ios/RNCooey.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -345,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD32F5AB20F5D35200D58042 /* VoiceBPLibrary.framework in Frameworks */,
+				DD3BB8AB213650510017548C /* CooeyA2WeighingScale.framework in Frameworks */,
 				DDDADE0A20F4AD2B00B40B1B /* libRNCooey.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -539,6 +544,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				DD3BB8A921364EA90017548C /* CooeyA2WeighingScale.framework */,
 				DD32F5A920F5D25600D58042 /* VoiceBPLibrary.framework */,
 				13B07FAE1A68108700A75B9A /* cooeyExample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,

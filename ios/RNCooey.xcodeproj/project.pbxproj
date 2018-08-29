@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNCooey.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNCooey.m */; };
+		DD3BB83D213631DF0017548C /* Glucometer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3BB83C213631DF0017548C /* Glucometer.m */; };
+		DD3BB840213631EF0017548C /* WeighingScale.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3BB83F213631EF0017548C /* WeighingScale.m */; };
+		DD3BB85121364D570017548C /* CooeyA2WeighingScale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB85021364D570017548C /* CooeyA2WeighingScale.framework */; };
+		DD3BB85E21364D5F0017548C /* libBloodTester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB85221364D5F0017548C /* libBloodTester.a */; };
+		DD3BB85F21364D5F0017548C /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD3BB85521364D5F0017548C /* CADebugMacros.cpp */; };
+		DD3BB86021364D5F0017548C /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD3BB85721364D5F0017548C /* CAXException.cpp */; };
+		DD3BB86121364D5F0017548C /* CADebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD3BB85A21364D5F0017548C /* CADebugPrintf.cpp */; };
+		DD3BB86221364D5F0017548C /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD3BB85B21364D5F0017548C /* CAStreamBasicDescription.cpp */; };
+		DD3BB86721364DB40017548C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB86621364DB40017548C /* AudioToolbox.framework */; };
+		DD3BB86921364DBB0017548C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB86821364DBB0017548C /* AVFoundation.framework */; };
+		DD3BB86B21364DC10017548C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB86A21364DC10017548C /* MediaPlayer.framework */; };
+		DD3BB86D21364DC60017548C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB86C21364DC60017548C /* CoreGraphics.framework */; };
+		DD3BB86F21364DD00017548C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB86E21364DD00017548C /* Foundation.framework */; };
+		DD3BB87121364DD60017548C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB87021364DD60017548C /* UIKit.framework */; };
+		DD3BB87321364DE10017548C /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3BB87221364DE10017548C /* libz.1.dylib */; };
 		DDA3468820F31F1F00F1F65B /* VoiceBPMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3468720F31F1F00F1F65B /* VoiceBPMonitor.m */; };
 		DDA3468A20F3213A00F1F65B /* VoiceBPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA3468920F3213A00F1F65B /* VoiceBPLibrary.framework */; };
 /* End PBXBuildFile section */
@@ -28,6 +43,30 @@
 		134814201AA4EA6300B7C361 /* libRNCooey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCooey.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNCooey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCooey.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNCooey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCooey.m; sourceTree = "<group>"; };
+		DD3BB83B213631DF0017548C /* Glucometer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glucometer.h; sourceTree = "<group>"; };
+		DD3BB83C213631DF0017548C /* Glucometer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Glucometer.m; sourceTree = "<group>"; };
+		DD3BB83E213631EF0017548C /* WeighingScale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeighingScale.h; sourceTree = "<group>"; };
+		DD3BB83F213631EF0017548C /* WeighingScale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeighingScale.m; sourceTree = "<group>"; };
+		DD3BB85021364D570017548C /* CooeyA2WeighingScale.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CooeyA2WeighingScale.framework; sourceTree = "<group>"; };
+		DD3BB85221364D5F0017548C /* libBloodTester.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBloodTester.a; sourceTree = "<group>"; };
+		DD3BB85421364D5F0017548C /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		DD3BB85521364D5F0017548C /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		DD3BB85621364D5F0017548C /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		DD3BB85721364D5F0017548C /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		DD3BB85821364D5F0017548C /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		DD3BB85921364D5F0017548C /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		DD3BB85A21364D5F0017548C /* CADebugPrintf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugPrintf.cpp; sourceTree = "<group>"; };
+		DD3BB85B21364D5F0017548C /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		DD3BB85C21364D5F0017548C /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		DD3BB85D21364D5F0017548C /* BloodTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodTester.h; sourceTree = "<group>"; };
+		DD3BB86421364DA50017548C /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		DD3BB86621364DB40017548C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DD3BB86821364DBB0017548C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DD3BB86A21364DC10017548C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		DD3BB86C21364DC60017548C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DD3BB86E21364DD00017548C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DD3BB87021364DD60017548C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DD3BB87221364DE10017548C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		DDA3468620F31F1F00F1F65B /* VoiceBPMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceBPMonitor.h; sourceTree = "<group>"; };
 		DDA3468720F31F1F00F1F65B /* VoiceBPMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceBPMonitor.m; sourceTree = "<group>"; };
 		DDA3468920F3213A00F1F65B /* VoiceBPLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VoiceBPLibrary.framework; sourceTree = "<group>"; };
@@ -38,6 +77,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3BB87321364DE10017548C /* libz.1.dylib in Frameworks */,
+				DD3BB87121364DD60017548C /* UIKit.framework in Frameworks */,
+				DD3BB86F21364DD00017548C /* Foundation.framework in Frameworks */,
+				DD3BB86D21364DC60017548C /* CoreGraphics.framework in Frameworks */,
+				DD3BB86B21364DC10017548C /* MediaPlayer.framework in Frameworks */,
+				DD3BB86921364DBB0017548C /* AVFoundation.framework in Frameworks */,
+				DD3BB86721364DB40017548C /* AudioToolbox.framework in Frameworks */,
+				DD3BB85121364D570017548C /* CooeyA2WeighingScale.framework in Frameworks */,
+				DD3BB85E21364D5F0017548C /* libBloodTester.a in Frameworks */,
 				DDA3468A20F3213A00F1F65B /* VoiceBPLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,13 +104,69 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				DD3BB84F21364D2E0017548C /* WeighingScaleSDK */,
+				DD3BB84E21364D260017548C /* GlucometerSDK */,
+				DD3BB83E213631EF0017548C /* WeighingScale.h */,
+				DD3BB83F213631EF0017548C /* WeighingScale.m */,
+				DD3BB83B213631DF0017548C /* Glucometer.h */,
+				DD3BB83C213631DF0017548C /* Glucometer.m */,
 				DDA3468620F31F1F00F1F65B /* VoiceBPMonitor.h */,
 				DDA3468720F31F1F00F1F65B /* VoiceBPMonitor.m */,
 				B3E7B5881CC2AC0600A0062D /* RNCooey.h */,
 				B3E7B5891CC2AC0600A0062D /* RNCooey.m */,
 				DDA3468920F3213A00F1F65B /* VoiceBPLibrary.framework */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				DD3BB86321364DA50017548C /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		DD3BB84E21364D260017548C /* GlucometerSDK */ = {
+			isa = PBXGroup;
+			children = (
+				DD3BB85D21364D5F0017548C /* BloodTester.h */,
+				DD3BB85221364D5F0017548C /* libBloodTester.a */,
+				DD3BB85321364D5F0017548C /* Public Utility */,
+			);
+			path = GlucometerSDK;
+			sourceTree = "<group>";
+		};
+		DD3BB84F21364D2E0017548C /* WeighingScaleSDK */ = {
+			isa = PBXGroup;
+			children = (
+				DD3BB85021364D570017548C /* CooeyA2WeighingScale.framework */,
+			);
+			path = WeighingScaleSDK;
+			sourceTree = "<group>";
+		};
+		DD3BB85321364D5F0017548C /* Public Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DD3BB85421364D5F0017548C /* CAStreamBasicDescription.h */,
+				DD3BB85521364D5F0017548C /* CADebugMacros.cpp */,
+				DD3BB85621364D5F0017548C /* CADebugPrintf.h */,
+				DD3BB85721364D5F0017548C /* CAXException.cpp */,
+				DD3BB85821364D5F0017548C /* CAXException.h */,
+				DD3BB85921364D5F0017548C /* CADebugMacros.h */,
+				DD3BB85A21364D5F0017548C /* CADebugPrintf.cpp */,
+				DD3BB85B21364D5F0017548C /* CAStreamBasicDescription.cpp */,
+				DD3BB85C21364D5F0017548C /* CAMath.h */,
+			);
+			path = "Public Utility";
+			sourceTree = "<group>";
+		};
+		DD3BB86321364DA50017548C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD3BB87221364DE10017548C /* libz.1.dylib */,
+				DD3BB87021364DD60017548C /* UIKit.framework */,
+				DD3BB86E21364DD00017548C /* Foundation.framework */,
+				DD3BB86C21364DC60017548C /* CoreGraphics.framework */,
+				DD3BB86A21364DC10017548C /* MediaPlayer.framework */,
+				DD3BB86821364DBB0017548C /* AVFoundation.framework */,
+				DD3BB86621364DB40017548C /* AudioToolbox.framework */,
+				DD3BB86421364DA50017548C /* libz.1.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,8 +225,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3BB86021364D5F0017548C /* CAXException.cpp in Sources */,
+				DD3BB840213631EF0017548C /* WeighingScale.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNCooey.m in Sources */,
+				DD3BB86221364D5F0017548C /* CAStreamBasicDescription.cpp in Sources */,
 				DDA3468820F31F1F00F1F65B /* VoiceBPMonitor.m in Sources */,
+				DD3BB85F21364D5F0017548C /* CADebugMacros.cpp in Sources */,
+				DD3BB86121364D5F0017548C /* CADebugPrintf.cpp in Sources */,
+				DD3BB83D213631DF0017548C /* Glucometer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +269,10 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/WeighingScaleSDK",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -211,6 +325,10 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/WeighingScaleSDK",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -231,7 +349,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/WeighingScaleSDK",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -239,7 +358,10 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GlucometerSDK",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNCooey;
 				SKIP_INSTALL = YES;
@@ -251,7 +373,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/WeighingScaleSDK",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -259,7 +382,10 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GlucometerSDK",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNCooey;
 				SKIP_INSTALL = YES;

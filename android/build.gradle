@@ -42,6 +42,8 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.cooey.android:voicebpmonitor:1.0.01"
+    implementation "com.cooey.android:weighingscale:1.0.01"
+    implementation "com.cooey.android:glucometer:1.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.41"
     implementation "com.facebook.react:react-native:+"
 }
