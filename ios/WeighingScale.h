@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
+
 @interface WeighingScale : NSObject <RCTBridgeModule>
 
 @end
