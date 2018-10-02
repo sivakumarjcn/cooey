@@ -44,8 +44,20 @@ RCT_EXPORT_MODULE()
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioRouteChangeListenerCallback:) name:AVAudioSessionRouteChangeNotification object:nil];
         
     }
+   
     return self;
 }
+
+RCT_EXPORT_METHOD(startMeasuring) {
+     [self.bloodTester setTestType:0];
+     [self.bloodTester wakeupDevice];
+     [self.bloodTester startRecord];
+}
+
+RCT_EXPORT_METHOD(stopMeasuring) {
+    [self.bloodTester stopRecord];
+}
+
     
 -(void)audioRouteChangeListenerCallback:(NSNotification*)notification {
     NSDictionary *info = notification.userInfo;
@@ -67,6 +79,8 @@ RCT_EXPORT_MODULE()
         break;
     }
 }
+
+
     
 -(void)bloodTesterStatusChanged:(NSNotification*)notification {
     NotifyStatus *notifyStatus = (NotifyStatus*)notification.object;
@@ -81,8 +95,11 @@ RCT_EXPORT_MODULE()
             [self sendEventWithName:@"Device_Connection" body:@{@"status":@"communicating"}];
         }break;
         case TEST_STATUS_RECOGNIZE_DEVICE: {
-             [self sendEventWithName:@"Device_Connection" body:@{@"status":@"communicating"}];
+             [self sendEventWithName:@"Device_Connection" body:@{@"status":@"recognized"}];
         }break;
+        case TEST_STATUS_PAPER_INSERTED: {
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"readyToTest"}];
+        }
         case TEST_STATUS_DEVICE_CHECKE_FINISH: {
              [self sendEventWithName:@"Device_Connection" body:@{@"status":@"insert_paper"}];
         }break;
@@ -107,11 +124,11 @@ RCT_EXPORT_MODULE()
             [self sendEventWithName:@"test_result" body:@{@"result":[NSNumber numberWithDouble:sugarLevel], @"title":title}];
         }break;
         case TEST_STATUS_CHECK_ERROR: {
-            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"coonection_failed"}];
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"connection_failed"}];
         }break;
         
         case TEST_STATUS_TIME_OUT_DEVICE_SLEEP: {
-            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"coonection_failed"}];
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"connection_failed"}];
         }break;
         case TEST_STATUS_NEED_CALIBRATION:
         case TEST_STATUS_LOW_POWER:
@@ -119,7 +136,7 @@ RCT_EXPORT_MODULE()
         case TEST_STATUS_TEMPERATURE_HIGH_ERROR:
         case TEST_STATUS_TEST_TIMEOUT:
         case TEST_STATUS_UNKNOW_CAUSE_ERROR :{
-            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"coonection_failed"}];
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"connection_failed"}];
         }break;
 
         default:

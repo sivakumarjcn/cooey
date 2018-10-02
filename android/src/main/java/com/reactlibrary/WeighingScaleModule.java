@@ -34,7 +34,6 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements A
 
     private final static int REQUEST_ENABLE_BT = 1;
     private CooeyBleDeviceManager cooeyBleDeviceManager;
-    private Boolean mConnected = false;
     private int age;
     private int gender;
     private float height;
