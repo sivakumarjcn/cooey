@@ -53,10 +53,12 @@ RCT_EXPORT_MODULE()
     switch (routeChangeReason) {
         case AVAudioSessionRouteChangeReasonNewDeviceAvailable: {
             //Device is plugged-in
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"plugged_in"}];
         }
         break;
         case AVAudioSessionRouteChangeReasonOldDeviceUnavailable : {
             //Device Disconnected
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"plugged_out"}];
         }
         case AVAudioSessionRouteChangeReasonCategoryChange: {
             
@@ -72,28 +74,29 @@ RCT_EXPORT_MODULE()
     DNUTestStatus status = notifyStatus.status;
     switch (status) {
         case TEST_STATUS_WAITING_DEVICE_PLUGIN: {
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"waiting_to_plugin"}];
         }
         break;
         case TEST_STATUS_WAKING_UP_DEVICE: {
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"communicating"}];
         }break;
         case TEST_STATUS_RECOGNIZE_DEVICE: {
-            
+             [self sendEventWithName:@"Device_Connection" body:@{@"status":@"communicating"}];
         }break;
         case TEST_STATUS_DEVICE_CHECKE_FINISH: {
-            
+             [self sendEventWithName:@"Device_Connection" body:@{@"status":@"insert_paper"}];
         }break;
         case TEST_STATUS_PAPER_USED: {
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"old_paper_user"}];
         }break;
         case TEST_STATUS_PAPER_OUT: {
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"paper_out"}];
         }break;
         case TEST_STATUS_START_TEST: {
             NSInteger progress = [[params valueForKey:PARAM_TEST_PROGRESS] integerValue];
             NSInteger countDown = 10 - progress;
             NSLog(@"count down %ld", (long)countDown);
+            [self sendEventWithName:@"test_progress" body:@{@"progress":[NSNumber numberWithInteger:countDown]}];
         }break;
         case TEST_STATUS_TEST_COMPLETE: {
             
@@ -101,14 +104,14 @@ RCT_EXPORT_MODULE()
             NSString *title = [BloodTester formatValue:result];
             double sugarLevel = result * 16;
             NSLog(@"title %@ sugar %f", title, sugarLevel);
-        
+            [self sendEventWithName:@"test_result" body:@{@"result":[NSNumber numberWithDouble:sugarLevel], @"title":title}];
         }break;
         case TEST_STATUS_CHECK_ERROR: {
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"coonection_failed"}];
         }break;
         
         case TEST_STATUS_TIME_OUT_DEVICE_SLEEP: {
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"coonection_failed"}];
         }break;
         case TEST_STATUS_NEED_CALIBRATION:
         case TEST_STATUS_LOW_POWER:
@@ -116,12 +119,19 @@ RCT_EXPORT_MODULE()
         case TEST_STATUS_TEMPERATURE_HIGH_ERROR:
         case TEST_STATUS_TEST_TIMEOUT:
         case TEST_STATUS_UNKNOW_CAUSE_ERROR :{
-            
+            [self sendEventWithName:@"Device_Connection" body:@{@"status":@"coonection_failed"}];
         }break;
 
         default:
         break;
     }
-    
 }
+
+-(void)sendEventWithName:(NSString*)eventName body:(NSDictionary *)body {
+    
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:body];
+    [userInfo setValue:eventName forKey:@"eventName"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RNCOOEY_NOTIFICATION" object:nil userInfo:userInfo];
+}
+
 @end

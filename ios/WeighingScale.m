@@ -36,23 +36,66 @@ RCT_EXPORT_MODULE()
     if(self = [super init]) {
         self.scaleConnectionManager = [[ScaleConnectionManager alloc] init];
         self.scaleReadingManager = [[ScaleReadingManager alloc] init];
+        
+        __weak WeighingScale *weakSelf = self;
+        
         [self.scaleConnectionManager setOnStatusUpdate:^(NSString * _Nonnull status) {
-            
+           [weakSelf sendEventWithName:@"connectionStatus" body:@{@"status":status}];
         }];
+        [self.scaleReadingManager setOnStatusUpdate:^(NSString * _Nonnull status) {
+            [weakSelf sendEventWithName:@"readingStatus" body:@{@"status":status}];
+        }];
+        
+ 
         [self.scaleReadingManager setGetValue:^(CGFloat weight, CGFloat bmi, CGFloat fatPercent, CGFloat waterPercent, CGFloat musclePercent, CGFloat bonePercent) {
+            NSMutableDictionary *result = [NSMutableDictionary dictionary];
+            [result setObject:[NSNumber numberWithFloat:weight] forKey:@"weight"];
+             [result setObject:[NSNumber numberWithFloat:bmi] forKey:@"bmi"];
+             [result setObject:[NSNumber numberWithFloat:fatPercent] forKey:@"fatPercent"];
+             [result setObject:[NSNumber numberWithFloat:waterPercent] forKey:@"waterPercent"];
+             [result setObject:[NSNumber numberWithFloat:musclePercent] forKey:@"musclePercent"];
+             [result setObject:[NSNumber numberWithFloat:bonePercent] forKey:@"bonePercent"];
             
+            [weakSelf sendEventWithName:@"weighingScaleResult" body:result];
         }];
+        
     }
+    
     return self;
 }
 
 
-RCT_EXPORT_METHOD(pairDevice) {
+RCT_EXPORT_METHOD(pairDevice: (NSDictionary*) userData ) {
+    
+    NSInteger age = [[userData valueForKey:@"age"] integerValue];
+    NSInteger gender = [[userData valueForKey:@"gender"] integerValue];
+    NSInteger height = [[userData valueForKey:@"height"] integerValue];
+    
+    [self.scaleConnectionManager setUserDataWithAge:age height:height genflag:gender];
+    
     [self.scaleConnectionManager scan];
 }
 
-RCT_EXPORT_METHOD(takeReading) {
+RCT_EXPORT_METHOD(takeReading: (NSDictionary*) userData) {
+    
+    NSInteger age = [[userData valueForKey:@"age"] integerValue];
+    NSInteger gender = [[userData valueForKey:@"gender"] integerValue];
+    NSInteger height = [[userData valueForKey:@"height"] integerValue];
+    
+    [self.scaleReadingManager setUsrage:age];
+    [self.scaleReadingManager setUsrgender:gender];
+    [self.scaleReadingManager setUsrheight:height];
     [self.scaleReadingManager scan];
+}
+
+RCT_EXPORT_METHOD(stopDevice) {
+    //no method available
+}
+
+-(void)sendEventWithName:(NSString*)eventName body:(NSDictionary *)body {
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:body];
+    [userInfo setValue:eventName forKey:@"eventName"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RNCOOEY_NOTIFICATION" object:nil userInfo:userInfo];
 }
     
 @end

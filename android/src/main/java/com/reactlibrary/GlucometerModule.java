@@ -29,12 +29,7 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements Acti
     }
 
     @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
     }
 }

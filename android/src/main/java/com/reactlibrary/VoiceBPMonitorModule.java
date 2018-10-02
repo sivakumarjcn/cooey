@@ -133,8 +133,9 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
         return "VoiceBPMonitor";
     }
 
+
     @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if(requestCode == REQUEST_ENABLE_BT) {
             if (resultCode == Activity.RESULT_CANCELED) {
@@ -145,10 +146,5 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
                 this.startConnection();
             }
         }
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
-
     }
 }
