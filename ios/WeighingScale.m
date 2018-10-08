@@ -10,17 +10,23 @@
 #import <CooeyA2WeighingScale/CooeyA2WeighingScale.h>
 
 @interface WeighingScale()
+#if !TARGET_IPHONE_SIMULATOR
 @property (nonatomic, strong)ScaleReadingManager *scaleReadingManager;
 @property (nonatomic, strong) ScaleConnectionManager *scaleConnectionManager;
+#endif
+
 @end
 
 @implementation WeighingScale
 
 RCT_EXPORT_MODULE()
 
+
 @synthesize bridge = _bridge;
+#if !TARGET_IPHONE_SIMULATOR
 @synthesize scaleReadingManager;
 @synthesize scaleConnectionManager;
+#endif
 
 - (dispatch_queue_t)methodQueue
 {
@@ -34,6 +40,7 @@ RCT_EXPORT_MODULE()
     
 - (instancetype)init {
     if(self = [super init]) {
+        #if !TARGET_IPHONE_SIMULATOR
         self.scaleConnectionManager = [[ScaleConnectionManager alloc] init];
         self.scaleReadingManager = [[ScaleReadingManager alloc] init];
         
@@ -58,7 +65,7 @@ RCT_EXPORT_MODULE()
             
             [weakSelf sendEventWithName:@"weighingScaleResult" body:result];
         }];
-        
+        #endif
     }
     
     return self;
@@ -66,7 +73,7 @@ RCT_EXPORT_MODULE()
 
 
 RCT_EXPORT_METHOD(pairDevice: (NSDictionary*) userData ) {
-    
+    #if !TARGET_IPHONE_SIMULATOR
     NSInteger age = [[userData valueForKey:@"age"] integerValue];
     NSInteger gender = [[userData valueForKey:@"gender"] integerValue];
     NSInteger height = [[userData valueForKey:@"height"] integerValue];
@@ -74,10 +81,11 @@ RCT_EXPORT_METHOD(pairDevice: (NSDictionary*) userData ) {
     [self.scaleConnectionManager setUserDataWithAge:age height:height genflag:gender];
     
     [self.scaleConnectionManager scan];
+    #endif
 }
 
 RCT_EXPORT_METHOD(takeReading: (NSDictionary*) userData) {
-    
+     #if !TARGET_IPHONE_SIMULATOR
     NSInteger age = [[userData valueForKey:@"age"] integerValue];
     NSInteger gender = [[userData valueForKey:@"gender"] integerValue];
     NSInteger height = [[userData valueForKey:@"height"] integerValue];
@@ -86,6 +94,7 @@ RCT_EXPORT_METHOD(takeReading: (NSDictionary*) userData) {
     [self.scaleReadingManager setUsrgender:gender];
     [self.scaleReadingManager setUsrheight:height];
     [self.scaleReadingManager scan];
+    #endif
 }
 
 RCT_EXPORT_METHOD(stopDevice) {
