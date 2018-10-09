@@ -46,21 +46,21 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
     public void onDeviceNotInserted() {
         WritableMap params = Arguments.createMap();
         params.putString("status","plugged_out");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 
     @Override
     public void onDeviceRecognised() {
         WritableMap params = Arguments.createMap();
         params.putString("status","recognized");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 
     @Override
     public void onTestPaperInserted() {
         WritableMap params = Arguments.createMap();
         params.putString("status","readyToTest");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
 
     }
 
@@ -69,7 +69,7 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
 
         WritableMap params = Arguments.createMap();
         params.putString("status","old_paper_user");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 
     @Override
@@ -77,21 +77,21 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
 
         WritableMap params = Arguments.createMap();
         params.putString("status","paper_out");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 
     @Override
     public void onTestStarted() {
         WritableMap params = Arguments.createMap();
         params.putInt("progress",1);
-        RNCooeyModule.sendEvent(this.reactContext,"test_progress",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_test_progress",params);
     }
 
     @Override
     public void onTestFinished(float result) {
         WritableMap params = Arguments.createMap();
         params.putDouble("result",result);
-        RNCooeyModule.sendEvent(this.reactContext,"test_result",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_test_result",params);
     }
 
     @Override
@@ -137,20 +137,20 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
     @Override
     public void onCommunicating() {
         WritableMap params = Arguments.createMap();
-        params.putString("status","old_paper_user");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        params.putString("status","old_paper_used");
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 
     @Override
     public void onRecognising() {
         WritableMap params = Arguments.createMap();
         params.putString("status","recognized");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 
     private void onError() {
         WritableMap params = Arguments.createMap();
         params.putString("status","communicating");
-        RNCooeyModule.sendEvent(this.reactContext,"Device_Connection",params);
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
     }
 }

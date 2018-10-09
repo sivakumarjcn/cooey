@@ -10,6 +10,11 @@ NSString * const VOICE_BP_RESULTS_EVENT = @"voice_bp_results";
 NSString * const VOICE_BP_SYS_PROGRESS_EVENT = @"voice_bp_sys_progress";
 NSString * const VOICE_BP_ERROR_EVENT = @"voice_bp_error";
 
+NSString * const GLUCO_DEVICE_CONNECTION = @"gluco_device_connection";
+NSString * const GLUCO_DEVICE_RESULT = @"gluco_test_result";
+NSString * const GLUCO_DEVICE_PROGRESS = @"gluco_test_progress";
+
+
 @implementation RNCooey
 
 RCT_EXPORT_MODULE(Cooey)
@@ -32,7 +37,10 @@ RCT_EXPORT_MODULE(Cooey)
              VOICE_BP_BATTERY_EVENT,
              VOICE_BP_RESULTS_EVENT,
              VOICE_BP_SYS_PROGRESS_EVENT,
-             VOICE_BP_ERROR_EVENT
+             VOICE_BP_ERROR_EVENT,
+             GLUCO_DEVICE_CONNECTION,
+             GLUCO_DEVICE_RESULT,
+             GLUCO_DEVICE_PROGRESS
              ];
 }
 
