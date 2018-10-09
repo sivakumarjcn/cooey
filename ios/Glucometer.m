@@ -48,14 +48,19 @@ RCT_EXPORT_MODULE()
     return self;
 }
 
-RCT_EXPORT_METHOD(startMeasuring) {
-     [self.bloodTester setTestType:0];
+RCT_EXPORT_METHOD(startMeasuring:(NSInteger)testType) {
+    // 1 - fasting
+    // 2 - after meal
+    // 3 - random
+     [self.bloodTester setTestType:testType];
      [self.bloodTester wakeupDevice];
-     [self.bloodTester startRecord];
+     [self.bloodTester startRecord]; 
 }
 
 RCT_EXPORT_METHOD(stopMeasuring) {
     [self.bloodTester stopRecord];
+    //reset
+    [self.bloodTester setTestType:0];
 }
 
     

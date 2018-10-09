@@ -1,12 +1,10 @@
 package com.reactlibrary;
 
 
-import android.content.Intent;
-
 
 import com.cooey.glucometer.GlucometerController;
 import com.cooey.glucometer.IGlucometerResultCallBack;
-import com.facebook.react.bridge.ActivityEventListener;
+
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -26,8 +24,8 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
     }
 
     @ReactMethod
-    public void startMeasuring() {
-    this.glucometerController.startMeasuring(this.reactContext);
+    public void startMeasuring(Integer testType) {
+        this.glucometerController.startMeasuring(this.reactContext);
     }
 
     @ReactMethod
