@@ -47,10 +47,10 @@ RCT_EXPORT_MODULE()
         __weak WeighingScale *weakSelf = self;
         
         [self.scaleConnectionManager setOnStatusUpdate:^(NSString * _Nonnull status) {
-           [weakSelf sendEventWithName:@"connectionStatus" body:@{@"status":status}];
+           [weakSelf sendEventWithName:@"wt_connectionStatus" body:@{@"status":status}];
         }];
         [self.scaleReadingManager setOnStatusUpdate:^(NSString * _Nonnull status) {
-            [weakSelf sendEventWithName:@"readingStatus" body:@{@"status":status}];
+            [weakSelf sendEventWithName:@"wt_readingStatus" body:@{@"status":status}];
         }];
         
  

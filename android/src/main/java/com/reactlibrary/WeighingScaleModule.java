@@ -124,8 +124,8 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements A
         if(requestCode == REQUEST_ENABLE_BT) {
             if (resultCode == Activity.RESULT_CANCELED) {
                 WritableMap params = Arguments.createMap();
-                params.putString("error","bluetooth permission denied");
-                RNCooeyModule.sendEvent(this.reactContext,"bluetooth_error",params);
+                params.putString("bluetooth_error","bluetooth permission denied");
+                RNCooeyModule.sendEvent(this.reactContext,"wt_connectionStatus",params);
             }else {
                 this.turnOnBluetooth();
                 this.startScan();
@@ -137,7 +137,7 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements A
     public void error(String s) {
         WritableMap params = Arguments.createMap();
         params.putString("status",s);
-        RNCooeyModule.sendEvent(this.reactContext,"connectionStatus",params);
+        RNCooeyModule.sendEvent(this.reactContext,"wt_connectionStatus",params);
     }
 
     @Override
@@ -171,6 +171,6 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements A
         }
 
         params.putString("status", status);
-        RNCooeyModule.sendEvent(this.reactContext,"readingStatus",params);
+        RNCooeyModule.sendEvent(this.reactContext,"wt_readingStatus",params);
     }
 }

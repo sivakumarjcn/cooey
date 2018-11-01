@@ -14,6 +14,10 @@ NSString * const GLUCO_DEVICE_CONNECTION = @"gluco_device_connection";
 NSString * const GLUCO_DEVICE_RESULT = @"gluco_test_result";
 NSString * const GLUCO_DEVICE_PROGRESS = @"gluco_test_progress";
 
+NSString * const WEIGH_DEVICE_CONNECTION = @"wt_connectionStatus";
+NSString * const WEIGH_DEVICE_READING_STATUS = @"wt_readingStatus";
+NSString * const WEIGH_SCALE_RESULT = @"weighingScaleResult";
+
 
 @implementation RNCooey
 
@@ -40,7 +44,10 @@ RCT_EXPORT_MODULE(Cooey)
              VOICE_BP_ERROR_EVENT,
              GLUCO_DEVICE_CONNECTION,
              GLUCO_DEVICE_RESULT,
-             GLUCO_DEVICE_PROGRESS
+             GLUCO_DEVICE_PROGRESS,
+             WEIGH_DEVICE_CONNECTION,
+             WEIGH_DEVICE_READING_STATUS,
+             WEIGH_SCALE_RESULT
              ];
 }
 
