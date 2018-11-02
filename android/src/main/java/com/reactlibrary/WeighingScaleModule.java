@@ -163,11 +163,11 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements A
     @Override
     public void state(STATE state) {
         WritableMap params = Arguments.createMap();
-        String status =  "searching";
+        String status =  "SEARCHING";
         if(state == STATE.PAIRING) {
-            status = "pairing";
+            status = "PAIRING";
         }else if(state == STATE.TAKING_READING) {
-            status = "reading";
+            status = "TAKING_READING";
         }
 
         params.putString("status", status);
