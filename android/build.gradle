@@ -29,6 +29,7 @@ android {
 }
 
 repositories {
+    mavenCentral()
     maven {
         credentials {
             username 'VSTS'
@@ -36,7 +37,6 @@ repositories {
         }
         url "https://cooeydevelopers.pkgs.visualstudio.com/_packaging/android/maven/v1"
     }
-    mavenCentral()
 }
 
 dependencies {
