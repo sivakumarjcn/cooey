@@ -19,7 +19,7 @@ import com.facebook.react.bridge.WritableMap;
 
 
 
-public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements VoiceBpMeterCallBack, ActivityEventListener {
+public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements VoiceBpMeterCallBack {
 
     private final ReactApplicationContext reactContext;
     private VoiceBpMeterControls voiceBpMeterControls;

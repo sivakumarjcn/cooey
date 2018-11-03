@@ -26,7 +26,7 @@ import com.facebook.react.bridge.WritableMap;
 
 import org.jetbrains.annotations.NotNull;
 
-public class WeighingScaleModule extends ReactContextBaseJavaModule implements ActivityEventListener, WeighingScaleCallBack {
+public class WeighingScaleModule extends ReactContextBaseJavaModule implements  WeighingScaleCallBack {
 
     private final ReactApplicationContext reactContext;
 
