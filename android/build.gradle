@@ -33,7 +33,7 @@ repositories {
     maven {
         credentials {
             username 'VSTS'
-            password "vstsGradleAccessToken=dypmrqoud252yhvkuusn5fskke3mzxvhqjfdn77lagfz4k33u5wq"
+            password "dypmrqoud252yhvkuusn5fskke3mzxvhqjfdn77lagfz4k33u5wq"
         }
         url "https://cooeydevelopers.pkgs.visualstudio.com/_packaging/android/maven/v1"
     }
