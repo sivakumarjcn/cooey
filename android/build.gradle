@@ -3,7 +3,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -29,11 +28,10 @@ android {
 }
 
 repositories {
-    mavenCentral()
     maven {
         credentials {
             username 'VSTS'
-            password "dypmrqoud252yhvkuusn5fskke3mzxvhqjfdn77lagfz4k33u5wq"
+            password System.getenv("VSTS_ENV_ACCESS_TOKEN") ?: "${vstsGradleAccessToken}"
         }
         url "https://cooeydevelopers.pkgs.visualstudio.com/_packaging/android/maven/v1"
     }
