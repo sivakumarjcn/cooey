@@ -26,7 +26,7 @@ import com.facebook.react.bridge.WritableMap;
 
 import org.jetbrains.annotations.NotNull;
 
-public class WeighingScaleModule extends ReactContextBaseJavaModule implements  WeighingScaleCallBack {
+public class WeighingScaleModule extends ReactContextBaseJavaModule implements  WeighingScaleCallBack, ActivityEventListener {
 
     private final ReactApplicationContext reactContext;
 
@@ -119,21 +119,6 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements  
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if(requestCode == REQUEST_ENABLE_BT) {
-            if (resultCode == Activity.RESULT_CANCELED) {
-                WritableMap params = Arguments.createMap();
-                params.putString("bluetooth_error","bluetooth permission denied");
-                RNCooeyModule.sendEvent(this.reactContext,"wt_connectionStatus",params);
-            }else {
-                this.turnOnBluetooth();
-                this.startScan();
-            }
-        }
-    }
-
-    @Override
     public void error(String s) {
         WritableMap params = Arguments.createMap();
         params.putString("status",s);
@@ -172,5 +157,24 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements  
 
         params.putString("status", status);
         RNCooeyModule.sendEvent(this.reactContext,"wt_readingStatus",params);
+    }
+
+    @Override
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQUEST_ENABLE_BT) {
+            if (resultCode == Activity.RESULT_CANCELED) {
+                WritableMap params = Arguments.createMap();
+                params.putString("bluetooth_error","bluetooth permission denied");
+                RNCooeyModule.sendEvent(this.reactContext,"wt_connectionStatus",params);
+            }else {
+                this.turnOnBluetooth();
+                this.startScan();
+            }
+        }
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+
     }
 }

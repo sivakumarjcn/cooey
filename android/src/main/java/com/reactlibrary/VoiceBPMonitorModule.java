@@ -10,6 +10,7 @@ import android.os.Handler;
 
 import com.cooey.android.voicebp.VoiceBpMeterCallBack;
 import com.cooey.android.voicebp.VoiceBpMeterControls;
+
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -19,7 +20,7 @@ import com.facebook.react.bridge.WritableMap;
 
 
 
-public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements VoiceBpMeterCallBack {
+public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements VoiceBpMeterCallBack, ActivityEventListener {
 
     private final ReactApplicationContext reactContext;
     private VoiceBpMeterControls voiceBpMeterControls;
@@ -134,8 +135,10 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
     }
 
 
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+
 
         if(requestCode == REQUEST_ENABLE_BT) {
             if (resultCode == Activity.RESULT_CANCELED) {
@@ -146,5 +149,11 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
                 this.startConnection();
             }
         }
+
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+
     }
 }
