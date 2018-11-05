@@ -35,11 +35,13 @@ repositories {
     }
 }
 
+configurations.maybeCreate("default")
+artifacts.add("default", file('voicebpmonitor-1.0.01.aar'))
+artifacts.add("default", file('weighingscale-1.0.01.aar'))
+artifacts.add("default", file('glucometer-1.0.0.aar'))
+
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.41'
-    implementation 'com.facebook.react:react-native:+'
-    implementation project(':glucometer-1.0.0')
-    implementation project(':voicebpmonitor-1.0.01')
-    implementation project(':weighingscale-1.0.01')
+    implementation "com.facebook.react:react-native:+"
 }

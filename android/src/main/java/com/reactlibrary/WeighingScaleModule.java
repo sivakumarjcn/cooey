@@ -41,6 +41,7 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements  
     public WeighingScaleModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+        this.reactContext.addActivityEventListener(this);
 
     }
 
@@ -173,4 +174,9 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements  
             }
         }
     }
+    
+     protected void onNewIntent(Intent intent) {
+
+    }
+
 }

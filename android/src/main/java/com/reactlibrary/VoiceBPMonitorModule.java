@@ -32,7 +32,7 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
     public VoiceBPMonitorModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-
+        this.reactContext.addActivityEventListener(this);
         final BluetoothManager bluetoothManager =
                 (BluetoothManager) this.reactContext.getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
@@ -148,5 +148,9 @@ public class VoiceBPMonitorModule extends ReactContextBaseJavaModule implements 
                 this.startConnection();
             }
         }
+    }
+
+    protected void onNewIntent(Intent intent) {
+
     }
 }
