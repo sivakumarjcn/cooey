@@ -4,10 +4,14 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+          flatDir {
+             dirs 'libs'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30"
+      
     }
 }
 
@@ -30,18 +34,15 @@ android {
 
 repositories {
     mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
 }
 
-configurations.maybeCreate("default")
-artifacts.add("default", file('voicebpmonitor-1.0.01.aar'))
-artifacts.add("default", file('weighingscale-1.0.01.aar'))
-artifacts.add("default", file('glucometer-1.0.0.aar'))
+
 
 dependencies {
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.41'
-    implementation "com.facebook.react:react-native:+"
+    implementation 'com.facebook.react:react-native:+'
+    implementation project(':voicebpmonitor-1.0.01')
+    implementation project(':glucometer-1.0.0')
+    implementation project(':weighingscale-1.0.01')
 }
