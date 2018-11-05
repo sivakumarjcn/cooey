@@ -159,8 +159,9 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements  
         RNCooeyModule.sendEvent(this.reactContext,"wt_readingStatus",params);
     }
 
+
     @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == REQUEST_ENABLE_BT) {
             if (resultCode == Activity.RESULT_CANCELED) {
                 WritableMap params = Arguments.createMap();
@@ -171,10 +172,5 @@ public class WeighingScaleModule extends ReactContextBaseJavaModule implements  
                 this.startScan();
             }
         }
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
-
     }
 }

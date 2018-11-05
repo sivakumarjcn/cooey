@@ -1,0 +1,1 @@
+include ':glucometer-1.0.0', ':voicebpmonitor-1.0.01', ':weighingscale-1.0.01'
