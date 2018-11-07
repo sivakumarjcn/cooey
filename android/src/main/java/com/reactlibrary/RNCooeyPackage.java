@@ -16,8 +16,7 @@ public class RNCooeyPackage implements ReactPackage {
       return Arrays.<NativeModule>asList(
               new RNCooeyModule(reactContext),
               new VoiceBPMonitorModule(reactContext),
-              new GlucometerModule(reactContext),
-              new WeighingScaleModule(reactContext));
+              new GlucometerModule(reactContext));
     }
 
     // Deprecated from RN 0.47

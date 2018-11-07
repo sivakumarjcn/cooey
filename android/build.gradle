@@ -43,5 +43,4 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation (name:'voicebpmonitor-1.0.01', ext: 'aar')
     implementation (name:'glucometer-1.0.0', ext: 'aar')
-    implementation (name:'weighingscale-1.0.01', ext: 'aar')
 }
