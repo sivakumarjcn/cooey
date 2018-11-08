@@ -41,9 +41,10 @@ RCT_EXPORT_MODULE()
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioRouteChangeListenerCallback:) name:AVAudioSessionRouteChangeNotification object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bloodTesterStatusChanged:) name:@"bloodTesterStatusChanged"  object:nil];
         
         [self.bloodTester setTestType:0];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bloodTesterStatusChanged:) name:@"bloodTesterStatusChanged"  object:nil];
     }
     
     return self;
@@ -70,6 +71,7 @@ RCT_EXPORT_METHOD(stopMeasuring) {
         case AVAudioSessionRouteChangeReasonNewDeviceAvailable: {
             //Device is plugged-in
             [self sendEventWithName:@"gluco_device_connection" body:@{@"status":@"plugged_in"}];
+            [self.bloodTester setTestType:1];
         }
             break;
         case AVAudioSessionRouteChangeReasonOldDeviceUnavailable : {
