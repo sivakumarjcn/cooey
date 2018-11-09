@@ -50,6 +50,10 @@ RCT_EXPORT_MODULE()
     return self;
 }
 
+RCT_EXPORT_METHOD(setUp) {
+    
+}
+
 RCT_EXPORT_METHOD(startMeasuring:(NSInteger)testType) {
     // 1 - fasting
     // 2 - after meal

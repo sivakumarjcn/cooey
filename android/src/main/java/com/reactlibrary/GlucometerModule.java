@@ -20,7 +20,12 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
     public GlucometerModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+    }
+
+    @ReactMethod
+    public void setUp() {
         this.glucometerController = new GlucometerController(this.reactContext, this);
+
     }
 
     @ReactMethod
@@ -49,9 +54,15 @@ public class GlucometerModule extends ReactContextBaseJavaModule implements IGlu
 
     @Override
     public void onDeviceRecognised() {
+
+        WritableMap param1 = Arguments.createMap();
+        param1.putString("status","plugged_in");
+        RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",param1);
+
         WritableMap params = Arguments.createMap();
         params.putString("status","recognized");
         RNCooeyModule.sendEvent(this.reactContext,"gluco_device_connection",params);
+
     }
 
     @Override
