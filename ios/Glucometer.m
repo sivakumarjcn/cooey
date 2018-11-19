@@ -143,14 +143,10 @@ RCT_EXPORT_METHOD(stopMeasuring) {
         }
             break;
         case TEST_STATUS_CHECK_ERROR: {
-            [self sendEventWithName:@"gluco_device_connection" body:@{@"status":@"connection_failed"}];
         }
             break;
-            
-        case TEST_STATUS_TIME_OUT_DEVICE_SLEEP: {
-            [self sendEventWithName:@"gluco_device_connection" body:@{@"status":@"connection_failed"}];
-        }
-            break;
+        case TEST_STATUS_TIME_OUT_DEVICE_SLEEP:
+         
         case TEST_STATUS_NEED_CALIBRATION:
         case TEST_STATUS_LOW_POWER:
         case TEST_STATUS_TEMPERATURE_LOW_ERROR:
