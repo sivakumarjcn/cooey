@@ -75,7 +75,9 @@ RCT_EXPORT_METHOD(stopMeasuring) {
         case AVAudioSessionRouteChangeReasonNewDeviceAvailable: {
             //Device is plugged-in
             [self sendEventWithName:@"gluco_device_connection" body:@{@"status":@"plugged_in"}];
-            [self.bloodTester setTestType:1];
+            if(self.bloodTester) {
+              [self.bloodTester setTestType:1];
+            }
         }
             break;
         case AVAudioSessionRouteChangeReasonOldDeviceUnavailable : {
