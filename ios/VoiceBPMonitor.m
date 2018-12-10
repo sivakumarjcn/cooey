@@ -10,7 +10,7 @@
 #import <VoiceBPLibrary/VoiceBPLibrary.h>
 
 @interface VoiceBPMonitor()
-@property BPMonitorConnectionManager *bpConnectionManager;
+@property (nonatomic, strong) BPMonitorConnectionManager *bpConnectionManager;
 @end
 
 
@@ -40,7 +40,10 @@ RCT_EXPORT_MODULE()
         __weak VoiceBPMonitor *weakSelf = self;
         [self.bpConnectionManager setOnReciveBatteryStatus:^(NSString *status) {
                 NSLog(@"battery status %@", status);
-            [weakSelf sendEventWithName:@"voice_bp_battery" body:@{@"status":[NSNumber numberWithBool:status]}];
+            if(weakSelf) {
+                [weakSelf sendEventWithName:@"voice_bp_battery" body:@{@"status":[NSNumber numberWithBool:status]}];
+            }
+           
         }];
         [self.bpConnectionManager setOnConnectionStatus:^(NSString *status) {
             NSLog(@"connection status %@", status);
@@ -48,20 +51,24 @@ RCT_EXPORT_MODULE()
             if( [status caseInsensitiveCompare:@"Connected"] == NSOrderedSame ) {
                  value = true;
             }
-            [weakSelf sendEventWithName:@"voice_bp_connection" body:@{@"status":@(value)}];
+            if(weakSelf) {
+                  [weakSelf sendEventWithName:@"voice_bp_connection" body:@{@"status":@(value)}];
+            }
+          
         }];
         [self.bpConnectionManager setOnComplete:^(CGFloat systolic, CGFloat diastolic, CGFloat heartrate, NSString *errorCode) {
             NSLog(@"data systolic %f, diastolic %f, heart rate %f, errorcode %@", systolic, diastolic, heartrate, errorCode);
-            if([errorCode integerValue] == 200) {
-                [weakSelf sendEventWithName:@"voice_bp_results" body:@{@"systolic":[NSNumber numberWithFloat:systolic],@"diastolic":[NSNumber numberWithFloat:diastolic],@"heartRate":[NSNumber numberWithFloat:heartrate]}];
-            }else {
-                [weakSelf sendEventWithName:@"voice_bp_error" body:@{@"errorCode":errorCode,@"error":@"Error"}];
+            if(weakSelf) {
+                if([errorCode integerValue] == 200) {
+                    [weakSelf sendEventWithName:@"voice_bp_results" body:@{@"systolic":[NSNumber numberWithFloat:systolic],@"diastolic":[NSNumber numberWithFloat:diastolic],@"heartRate":[NSNumber numberWithFloat:heartrate]}];
+                }else {
+                    [weakSelf sendEventWithName:@"voice_bp_error" body:@{@"errorCode":errorCode,@"error":@"Error"}];
+                }
             }
-
         }];
         
         [self.bpConnectionManager setOnRecivedBPContinousValue:^(NSString * systolicValue) {
-            if(systolicValue) {
+            if(systolicValue && weakSelf) {
                 NSCharacterSet *unwantedChars = [NSCharacterSet characterSetWithCharactersInString:@"\"[]"];
                 NSString *requiredString = [[systolicValue componentsSeparatedByCharactersInSet:unwantedChars] componentsJoinedByString: @""];
                 NSNumber *progress = [NSNumber numberWithInteger:[requiredString integerValue]];
